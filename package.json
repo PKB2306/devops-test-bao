@@ -1,0 +1,10 @@
+{
+  "name": "devops-test",
+  "version": "1.0.0",
+  "description": "Website demo CI/CD: GitHub -> Jenkins -> Build -> Deploy -> Telegram",
+  "scripts": {
+    "build": "node build.js",
+    "start": "npx http-server dist -p 8081"
+  },
+  "license": "ISC"
+}

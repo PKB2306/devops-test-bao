@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DevOps Test - CI/CD Demo</title>
+<style>
+:root{--bg:#eef2f6;--ink:#14213d;--muted:#51607a;--line:#c9d3e0;--accent:#2f6fed;--ok:#1f9d6b;--card:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1829;--ink:#e8eef8;--muted:#9aa9c2;--line:#2a3a56;--accent:#6b9bff;--ok:#3ccf91;--card:#16233a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",system-ui,Arial,sans-serif;line-height:1.6}
+main{max-width:860px;margin:0 auto;padding:56px 20px}
+h1{font-size:clamp(2rem,6vw,3.4rem);line-height:1.1;margin:0 0 12px;letter-spacing:-.02em}
+p.lead{color:var(--muted);font-size:1.1rem;max-width:60ch;margin:0 0 40px}
+.pipe{display:flex;flex-wrap:wrap;gap:0;margin:0 0 40px;padding:0;list-style:none;border:2px solid var(--ink);border-radius:8px;overflow:hidden}
+.pipe li{flex:1 1 140px;padding:18px 16px;background:var(--card);border-right:1px solid var(--line);font-weight:600}
+.pipe li:last-child{border-right:0}
+.pipe small{display:block;font-weight:400;color:var(--muted)}
+.pipe li.done{border-bottom:4px solid var(--ok)}
+section{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:24px;margin-bottom:20px}
+h2{margin:0 0 8px;font-size:1.2rem}
+code{background:var(--bg);padding:2px 6px;border-radius:4px}
+#status{color:var(--ok);font-weight:700}
+footer{color:var(--muted);font-size:.9rem;margin-top:32px}
+a:focus-visible{outline:3px solid var(--accent)}
+</style>
+</head>
+<body>
+<main>
+  <h1>Website này được deploy tự động.</h1>
+  <p class="lead">Mỗi lần push code lên nhánh <code>main</code>, Jenkins sẽ build, deploy và báo kết quả qua Telegram.</p>
+
+  <ol class="pipe">
+    <li class="done">GitHub<small>Push code</small></li>
+    <li class="done">Jenkins<small>Chạy pipeline</small></li>
+    <li class="done">Build<small>npm run build</small></li>
+    <li class="done">Deploy<small>Nginx</small></li>
+    <li class="done">Telegram<small>Thông báo</small></li>
+  </ol>
+
+  <section>
+    <h2>Trạng thái</h2>
+    <p>Phiên bản đang chạy: <span id="status">v1.0</span></p>
+    <p>Thời gian tải trang: <span id="time"></span></p>
+  </section>
+
+  <section>
+    <h2>Sinh viên thực hiện</h2>
+    <p>Họ tên: <strong>[Tên của bạn]</strong> &nbsp;|&nbsp; Môn: DevOps</p>
+  </section>
+
+  <footer>devops-test - bài kiểm tra thực hành CI/CD</footer>
+</main>
+<script>
+document.getElementById("time").textContent = new Date().toLocaleString("vi-VN");
+</script>
+</body>
+</html>
