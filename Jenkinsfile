@@ -14,14 +14,14 @@ pipeline {
     environment {
         PROJECT    = 'devops-test'
         BRANCH     = 'main'
-        SITE_URL   = 'http://<IP-HOAC-DOMAIN>'
+        SITE_URL   = 'http://localhost:8081'
         DEPLOY_DIR = '/var/www/devops-test'
         TG_TOKEN   = credentials('telegram-token')
         TG_CHAT    = credentials('telegram-chat-id')
     }
 
     triggers {
-        githubPush()
+        pollSCM('* * * * *')
     }
 
     stages {
